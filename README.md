@@ -1,7 +1,9 @@
 # 个人学习成长笔记
 
-- [x] [Redis](redis/index.md)
-- [ ] Zookeeper
+>打钩表示已经完成
+
+- [ ] [Redis](redis/index.md) 
+- [ ] [Zookeeper](zookeeper/index.md)
 - [ ] HDFS
 - [ ] Strom
 - [ ] Spark
