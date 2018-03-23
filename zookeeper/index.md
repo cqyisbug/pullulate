@@ -4,6 +4,7 @@ Zookeeper
 
 ## 整体架构
 ![架构图](zookeeper_structure.jpg)  
+
 | 部分 | 说明 |
 |---|---|
 | Client | zookeeper的管理对象,从服务器中访问信息.与服务器会保持一个连接 |
