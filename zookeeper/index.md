@@ -59,3 +59,63 @@ Znode通过路径引用,如同Unix中的文件路径.路径必须是绝对的,�
 - ② cversion：子节点版本号
 - ③ aversion：节点所拥有的ACL版本号
 
+## 安装
+
+### 单节点
+`
+mkdir -p /soft && cd /soft
+wget -O zookeeper.tar.gz http://mirrors.hust.edu.cn/apache/zookeeper/zookeeper-3.5.2-alpha/zookeeper-3.5.2-alpha.tar.gz
+
+tar -zxf zookeeper.tar.gz
+cd zookeeper
+current_path=$(pwd)
+mkdir -p data
+mkdir -p logs
+
+
+echo "tickTime=2000" > conf/zoo.cfg
+echo "dataDir=${current_path}/data" >> conf/zoo.cfg
+echo "dataLogDir=${current_path}/logs" >> conf/zoo.cfg
+echo "clientPort=2182" >> conf/zoo.cfg
+
+sh ${current_path}/bin/zkServer.sh start
+`
+
+
+### 集群
+
+`
+mkdir -p /soft && cd /soft
+wget -O zookeeper.tar.gz http://mirrors.hust.edu.cn/apache/zookeeper/zookeeper-3.5.2-alpha/zookeeper-3.5.2-alpha.tar.gz
+
+tar -zxf zookeeper.tar.gz
+
+zoo="zookeeper"
+clientport=2181
+
+for index in 1 2 3 ; do 
+    rm -rf ${zoo}${index}
+    cp -r ${zoo} ${zoo}${index}
+    cd ${zoo}${index}
+
+    current_path=$(pwd)
+    mkdir -p data
+    mkdir -p logs
+
+    echo "tickTime=2000" > conf/zoo.cfg
+    echo "dataDir=${current_path}/data" >> conf/zoo.cfg
+    echo "dataLogDir=${current_path}/logs" >> conf/zoo.cfg
+    echo "clientPort=${clientport}" >> conf/zoo.cfg
+    echo "syncLimit=2" >> conf/zoo.cfg
+    echo "initLimit=5" >> conf/zoo.cfg
+    echo "server.1=$(hostname -i):2888:3888" >> conf/zoo.cfg
+    echo "server.2=$(hostname -i):4888:5888" >> conf/zoo.cfg
+    echo "server.3=$(hostname -i):6888:7888" >> conf/zoo.cfg
+
+    echo ${index} > data/myid
+
+    sh ${current_path}/bin/zkServer.sh start
+    cd ..
+    let clientport++
+done
+`
