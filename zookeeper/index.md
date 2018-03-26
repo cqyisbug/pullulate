@@ -62,7 +62,8 @@ Znode通过路径引用,如同Unix中的文件路径.路径必须是绝对的,�
 ## 安装
 
 ### 单节点
-`
+
+```
 mkdir -p /soft && cd /soft
 wget -O zookeeper.tar.gz http://mirrors.hust.edu.cn/apache/zookeeper/zookeeper-3.5.2-alpha/zookeeper-3.5.2-alpha.tar.gz
 
@@ -79,12 +80,12 @@ echo "dataLogDir=${current_path}/logs" >> conf/zoo.cfg
 echo "clientPort=2182" >> conf/zoo.cfg
 
 sh ${current_path}/bin/zkServer.sh start
-`
+```
 
 
 ### 集群
 
-`
+```
 mkdir -p /soft && cd /soft
 wget -O zookeeper.tar.gz http://mirrors.hust.edu.cn/apache/zookeeper/zookeeper-3.5.2-alpha/zookeeper-3.5.2-alpha.tar.gz
 
@@ -118,4 +119,4 @@ for index in 1 2 3 ; do
     cd ..
     let clientport++
 done
-`
+```
