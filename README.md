@@ -5,7 +5,7 @@
 - [ ] [Redis](redis/index.md) 
 - [ ] [Zookeeper](zookeeper/index.md)
 - [ ] HDFS
-- [ ] [Strom](storm/index.md)
+- [ ] [Storm](storm/index.md)
 - [ ] Spark
 - [ ] Nginx
 
