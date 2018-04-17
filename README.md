@@ -2,7 +2,7 @@
 
 >打钩表示已经完成
 
-- [ ] [Redis](redis/index.md) 
+- [X] [Redis](redis/index.md) 
 - [ ] [Zookeeper](zookeeper/index.md)
 - [ ] [Hadoop](hadoop/index.md)
 - [ ] HDFS
