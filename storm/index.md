@@ -17,7 +17,7 @@ Storm
 ## 拓扑明细  
 ![拓扑图](topology.png)  
 
-**Topology**：在这个Topology中，我们看到一个Spout和一个Bolt。在Topology中，我们将Spout和Bolt称之为组件(Components)。一个Topology中，必须同时存在Spout和Bolt，Spout和Bolt数量可以随意。最简单的就是如上图，一个Topology中只有一个Spout和一个Bolt。要提醒的是：Topology的组件目前只有Spout和Bolt，没有其他组件。所以以后提到一个Topology的组件的时候，其实也就是指的是Spout或者Bolt。  
+**Topology**：在这个Topology中，我们看到两个Spout和四个Bolt。在Topology中，我们将Spout和Bolt称之为组件(Components)。一个Topology中，必须同时存在Spout和Bolt，Spout和Bolt数量可以随意。要提醒的是：Topology的组件目前只有Spout和Bolt，没有其他组件。所以以后提到一个Topology的组件的时候，其实也就是指的是Spout或者Bolt。  
   
 **Stream**：我们已经知道Spout是从外部数据源中获取数据，以一定的格式将数据传递给Bolt处理。从Spout中源源不断的给Bolt传递数据，形成的这个数据通道我们称之为Stream(流)。因为Strom是一个实时计算的流式处理框架，其不是像hadoop那样，一次性处理一大批的数据(批处理)，Storm是不断从外部数据源中获取最新的数据，然后将新的数据传递给Bolt处理(增量处理)。这样不断的获取与传输就形成了这个数据流通道就称之为Stream，如上图的虚线所示。  
   
