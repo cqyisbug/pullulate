@@ -13,4 +13,3 @@
 - [ ] [Cassandra](cassandra/index.md)
 - [ ] Hbase
 - [ ] MongoDB
-
